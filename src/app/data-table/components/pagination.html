@@ -1,4 +1,4 @@
-<div class="pagination-box">
+<div class="pagination-box d-flex justify-content-between">
   <div class="pagination-range">
     {{ dataTable.translations.paginationRange }}:
     <span [textContent]="dataTable.offset + 1"></span>
@@ -11,12 +11,14 @@
     /
     <span [textContent]="dataTable.itemCount"></span>
   </div>
-  <div class="pagination-controllers">
+  <div class="pagination-controllers d-flex">
     <div class="pagination-limit">
       <div class="input-group">
-        <span class="input-group-addon"
-          >{{ dataTable.translations.paginationLimit }}:</span
-        >
+        <span class="input-group-prepend">
+          <span class="input-group-text">
+            {{ dataTable.translations.paginationLimit }}:
+          </span>
+        </span>
         <input
           #limitInput
           type="number"
@@ -30,7 +32,7 @@
         />
       </div>
     </div>
-    <div class=" pagination-pages">
+    <div class="pagination-pages d-flex">
       <button
         [disabled]="dataTable.offset <= 0"
         (click)="pageFirst()"
@@ -41,7 +43,7 @@
       <button
         [disabled]="dataTable.offset <= 0"
         (click)="pageBack()"
-        class="btn btn-secondary pagination-prevpage"
+        class="btn btn-secondary pagination-prevpage mx-1"
       >
         &lsaquo;
       </button>
@@ -59,16 +61,18 @@
             (keyup.enter)="page = pageInput.value"
             (keyup.esc)="pageInput.value = page"
           />
-          <div class="input-group-addon">
-            <span>/</span>
-            <span [textContent]="dataTable.lastPage"></span>
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <span>/</span>
+              <span [textContent]="dataTable.lastPage"></span>
+            </span>
           </div>
         </div>
       </div>
       <button
         [disabled]="dataTable.offset + dataTable.limit >= dataTable.itemCount"
         (click)="pageForward()"
-        class="btn btn-secondary pagination-nextpage"
+        class="btn btn-secondary pagination-nextpage mx-1"
       >
         &rsaquo;
       </button>
