@@ -2,10 +2,20 @@
   position: relative;
   margin-top: -10px;
 }
+
 .pagination-range {
-  margin-top: 7px;
+  display: flex;
+  align-items: center;
   margin-left: 3px;
-  display: inline-block;
+}
+
+.pagination-range span {
+  margin: 0 4px;
+}
+
+.pagination-range span:last-child {
+  margin-right: 0;
+  margin-left: 4px;
 }
 
 .pagination-controllers input {
@@ -16,20 +26,11 @@
 
 .pagination-limit {
   margin-right: 25px;
-  display: inline-table;
   width: 150px;
-}
-
-.pagination-pages {
-  display: inline-block;
 }
 
 .pagination-page {
   width: 110px;
-}
-
-.pagination-box button {
-  outline: none !important;
 }
 
 .pagination-reload {
