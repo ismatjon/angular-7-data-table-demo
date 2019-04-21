@@ -1,9 +1,9 @@
-<div class="data-table-header">
+<div class="data-table-header d-flex justify-content-between">
   <h4 class="title" [textContent]="dataTable.headerTitle"></h4>
   <div class="button-panel">
     <button
       type="button"
-      class="btn btn-secondary btn-sm refresh-button"
+      class="btn btn-secondary btn-sm refresh-button mr-1"
       (click)="dataTable.reloadItems()"
     >
       <span class="fa fa-refresh"></span>
@@ -19,50 +19,64 @@
       <span class="fa fa-list"></span>
     </button>
     <div class="column-selector-wrapper" (click)="$event.stopPropagation()">
-      <div
-        *ngIf="columnSelectorOpen"
-        class="column-selector-box panel panel-default"
-      >
+      <div *ngIf="columnSelectorOpen" class="column-selector-box card">
         <div
           *ngIf="dataTable.expandableRows"
-          class="column-selector-fixed-column checkbox"
+          class="column-selector-fixed-column form-check"
         >
-          <label>
-            <input
-              type="checkbox"
-              [(ngModel)]="dataTable.expandColumnVisible"
-            />
-            <span>{{ dataTable.translations.expandColumn }}</span>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="dataTable.expandColumnVisible"
+            id="check1"
+          />
+          <label class="form-check-label" for="check1">
+            {{ dataTable.translations.expandColumn }}
           </label>
         </div>
+
         <div
           *ngIf="dataTable.indexColumn"
-          class="column-selector-fixed-column checkbox"
+          class="column-selector-fixed-column form-check"
         >
-          <label>
-            <input type="checkbox" [(ngModel)]="dataTable.indexColumnVisible" />
-            <span>{{ dataTable.translations.indexColumn }}</span>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="dataTable.indexColumnVisible"
+            id="check2"
+          />
+          <label class="form-check-label" for="check2">
+            {{ dataTable.translations.indexColumn }}
           </label>
         </div>
+
         <div
           *ngIf="dataTable.selectColumn"
-          class="column-selector-fixed-column checkbox"
+          class="column-selector-fixed-column form-check"
         >
-          <label>
-            <input
-              type="checkbox"
-              [(ngModel)]="dataTable.selectColumnVisible"
-            />
-            <span>{{ dataTable.translations.selectColumn }}</span>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="dataTable.selectColumnVisible"
+            id="check3"
+          />
+          <label class="form-check-label" for="check3">
+            {{ dataTable.translations.selectColumn }}
           </label>
         </div>
+
         <div
-          *ngFor="let column of dataTable.columns"
-          class="column-selector-column checkbox"
+          *ngFor="let column of dataTable.columns; index as i"
+          class="column-selector-column form-check"
         >
-          <label>
-            <input type="checkbox" [(ngModel)]="column.visible" />
-            <span [textContent]="column.header"></span>
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [(ngModel)]="column.visible"
+            [id]="'col-check' + i"
+          />
+          <label class="form-check-label" [for]="'col-check' + i">
+            {{ column.header }}
           </label>
         </div>
       </div>
