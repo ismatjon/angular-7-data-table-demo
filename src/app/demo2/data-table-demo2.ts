@@ -32,6 +32,8 @@ export class DataTableDemo2 {
   }
 
   rowColors(car) {
-    if (car.year >= this.yearLimit) return 'rgb(255, 255, 197)';
+    if (car.year >= this.yearLimit) {
+      return 'rgb(255, 255, 197)';
+    }
   }
 }

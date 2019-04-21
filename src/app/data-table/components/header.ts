@@ -1,7 +1,6 @@
 import { Component, Inject, forwardRef } from '@angular/core';
 import { DataTable } from './table';
 
-
 @Component({
   selector: 'data-table-header',
   templateUrl: './header.html',
@@ -11,12 +10,13 @@ import { DataTable } from './table';
   }
 })
 export class DataTableHeader {
+  columnSelectorOpen = false;
 
-    columnSelectorOpen = false;
+  _closeSelector() {
+    this.columnSelectorOpen = false;
+  }
 
-    _closeSelector() {
-        this.columnSelectorOpen = false;
-    }
-
-    constructor(@Inject(forwardRef(() => DataTable)) public dataTable: DataTable) {}
+  constructor(
+    @Inject(forwardRef(() => DataTable)) public dataTable: DataTable
+  ) {}
 }

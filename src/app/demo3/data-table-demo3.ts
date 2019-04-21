@@ -23,13 +23,13 @@ export class DataTableDemo3 {
 
   // special params:
 
-  translations = <DataTableTranslations>{
+  translations = {
     indexColumn: 'Index column',
     expandColumn: 'Expand column',
     selectColumn: 'Select column',
     paginationLimit: 'Max results',
     paginationRange: 'Result range'
-  };
+  } as DataTableTranslations;
 
   reloadFilms(params) {
     this.filmResource.query(params).then(films => (this.films = films));
