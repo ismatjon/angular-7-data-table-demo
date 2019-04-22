@@ -1,7 +1,7 @@
-## Angular Data Tables
+## Angular 7 Data Tables
 This is a fork of package [https://github.com/ggmod/angular-2-data-table] (https://github.com/ggmod/angular-2-data-table)
 
-A simple Angular data table, with built-in solutions for features including:
+A simple Angular 7 data table, with built-in solutions for features including:
 
 * pagination
 * sorting
